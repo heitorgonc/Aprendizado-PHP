@@ -10,7 +10,8 @@
 		<div>
 			<form method="POST" id="frmUsuario">
 				<div>
-					<input type="text" name="usuario" id="usuario">
+					<input type="text" name="usuario" id="usuario" placeholder="Usuário">
+					<input type="email" name="email" id="email" placeholder="Email">
 					<input type="submit" name="saveUsuario" id="saveUsuario" class="submit" value="Salvar">
 				</div>			
 			</form>
@@ -21,13 +22,16 @@
 				event.preventDefault();
 				const data = {
 					usuario: $('#usuario').val(),
-					action: $(event.target).prop('name'),
+					email: $('#email').val(),
+					action: $(event.target).prop('name')
 				};
 				$.ajax('/ex1api.php', {
 					method: 'post',
 					data: JSON.stringify(data),
 					success: resp => {
 						console.log(resp);
+						$('#usuario').val('');
+						$("#email").val('');
 					}
 				});
 			});

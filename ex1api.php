@@ -4,7 +4,7 @@
 	
 	if($obj->action == 'saveUsuario'){
 		$handle = fopen('users.txt', 'a+');
-		fwrite($handle, $obj->usuario . "\n");
+		fwrite($handle, "usuario:" .$obj->usuario . " email:". $obj->email . "\n");
 		fclose($handle);
 
 		header('Content-Type: application/json; charset=utf-8', true, 202);
