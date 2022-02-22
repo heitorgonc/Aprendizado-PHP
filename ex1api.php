@@ -9,7 +9,7 @@
 
 		header('Content-Type: application/json; charset=utf-8', true, 202);
 		echo json_encode(
-			['status' => 'ok', 'message' => 'usuário ' . $obj->email . ' gravado com sucesso']
+			['status' => 'ok', 'message' => 'usuário ' . $obj->usuario . ' gravado com sucesso']
 		);
 	}
 ?>
