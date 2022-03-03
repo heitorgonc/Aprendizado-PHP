@@ -2,13 +2,11 @@
 
 require_once 'guestbookRepository.php';
 
-$config = parse_ini_file('guestbook.ini');
-putenv('GUESTBOOK_DB=' . $config['GUESTBOOK_DB']);
-
+$fileIni = "guestbook.ini";
 // normalization
 $visitor = [
     'email' => $_POST['visitorEmail'] ?? null,
-    'name' => $_POST['visitorName'] ?? null,
+    'user' => $_POST['visitorUser'] ?? null,
 ];
 
 // validation
@@ -16,8 +14,8 @@ try {
     if (!$visitor['email']) {
         throw new \Exception('Informe e-mail valido');
     }
-    if (!$visitor['name']) {
-        throw new \Exception('Informe seu nome');
+    if (!$visitor['user']) {
+        throw new \Exception('Informe seu usuário');
     }
 } catch (\Exception $exception) {
     header('Content-Type: text/html; charset=utf8', true, 400);
@@ -26,5 +24,5 @@ try {
 }
 
 // persist
-saveVisitor($visitor);
+saveVisitor($visitor, $fileIni);
 header('Location: ' . $_SERVER['HTTP_REFERER'], true, 303);
