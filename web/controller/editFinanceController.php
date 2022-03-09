@@ -13,6 +13,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     try{
         deleteFinance($finance['title']);
         saveFinance($finance);
+        echo 'Finança alterada com sucesso';
+        echo '<a href="/template/listFinancesTemplate.php">Voltar</a>';
         exit(0);
     }catch(\Exception $exception){
         header('Content-Type: text/html; charset=utf8', true, 400);
