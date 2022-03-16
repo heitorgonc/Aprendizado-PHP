@@ -11,10 +11,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         'date' => $_POST['date'] ?? null
     ];
     try{
-        deleteFinance($finance['title']);
-        saveFinance($finance);
-        echo 'Finança alterada com sucesso';
-        echo '<a href="/template/listFinancesTemplate.php">Voltar</a>';
+        editFinance($finance);
+        header("Location: /list.php", true, 303);
         exit(0);
     }catch(\Exception $exception){
         header('Content-Type: text/html; charset=utf8', true, 400);

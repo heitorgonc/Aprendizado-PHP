@@ -11,7 +11,7 @@ $finance = [
 ];
 $handler = 'financeAssert.db';
 
-deleteFinance($finance['title']);
+deleteFinanceTxt($finance);
 assert(
     0 == filesize($handler),
     new \Exception('Não foi possivel deletar a finança ')

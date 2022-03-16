@@ -16,7 +16,7 @@
             <input type="text" name="financeValue" placeholder="Valor da finança">
             <input type="text" name="financeDate" placeholder="Data da finança">
             <input type="submit" value="Gravar finança">
-            <a href="/template/listFinancesTemplate.php">Listar Finanças</a>
+            <a href="/list.php">Listar Finanças</a>
         </form>
     </div>
 </body>

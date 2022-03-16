@@ -15,9 +15,22 @@ function saveFinance(array $finance){
 }
 
 function deleteFinance(string $title){
-    $financeFinded = findFinance($title);
+    $financeFinded = findFinanceByTitle($title);
     if($title != $financeFinded['title']){
         throw new \Exception('Finança inexistente');
     }
-    deleteFinanceTxt($title);
+    deleteFinanceByTitle($title);
+}
+
+function editFinance(array $finance){
+    if (!$finance['title']) {
+        throw new \Exception('Informe o título da finança');
+    }
+    if (!$finance['value']) {
+        throw new \Exception('Informe o valor de sua finança');
+    }
+    if(!$finance['date']){
+        throw new \Exception('Informe a data de sua finança');
+    }
+    editFinanceTxt($finance);
 }
